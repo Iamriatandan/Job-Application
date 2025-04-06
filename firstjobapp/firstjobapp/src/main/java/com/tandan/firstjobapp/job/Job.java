@@ -1,5 +1,6 @@
 package com.tandan.firstjobapp.job;
 
+import com.tandan.firstjobapp.company.Company;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,16 @@ public class Job {
 
     public Job() {
     }
+    @ManyToOne
+    private Company company;
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
 
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
